@@ -29,7 +29,6 @@ func PrintHelp(){
 	fmt.Println(help)
 }
 
-// Getting urls to Process
 // Takes filename as input
 // Gives Content of file, which is urls
 func GetUrlFromFile(fileName string) []string {
