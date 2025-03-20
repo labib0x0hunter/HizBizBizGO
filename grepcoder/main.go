@@ -128,23 +128,14 @@ func makeRequest(url string, con bool) {
 	// Make request
 	resp, err := client.Do(req)
 
-	if err != nil {
+	if err != nil || resp == ni {
 		return
 	}
 	defer resp.Body.Close()
 
-	if resp == nil {
-		return
-	}
-
-	if resp.StatusCode ==  http.StatusTooManyRequests {
-		return
-	}
-
 	if resp.StatusCode != http.StatusOK {
 		return
 	}
-
 
 	// Extract links and keyword search
 	if con {
