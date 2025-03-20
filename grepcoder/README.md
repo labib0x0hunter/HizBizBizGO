@@ -1,5 +1,5 @@
 # grepcoder
-This code is made for finding atcoder editorials which contains some specific keywords.
+This script is made for finding atcoder editorials which contains some specific keywords.
 
 ## Usages
 go run main.go ContestRange_startId ContestRange_endId keyword1, keyword2, ... , keywordn
