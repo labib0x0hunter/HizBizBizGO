@@ -128,7 +128,7 @@ func makeRequest(url string, con bool) {
 	// Make request
 	resp, err := client.Do(req)
 
-	if err != nil || resp == ni {
+	if err != nil || resp == nil {
 		return
 	}
 	defer resp.Body.Close()
