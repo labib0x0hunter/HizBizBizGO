@@ -22,6 +22,8 @@ var (
 		"Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
 		"Mozilla/5.0 (Linux; Android 10; SM-A505FN) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/537.36",
 	}
+	wg sync.WaitGroup
+	mu sync.Mutex
 )
 
 // Help
@@ -56,7 +58,7 @@ func GetUrlFromFile(fileName string) []string {
 }
 
 // Make Request to urls
-func makeRequest(url string, wg *sync.WaitGroup, mu *sync.Mutex){
+func makeRequest(url string){
 
 	defer wg.Done()      // second execute
 
@@ -102,12 +104,6 @@ func main() {
 	// Read from file and store in urls
 	fileName := args[0]
 	urls := GetUrlFromFile(fileName)
-	
-	// For Race Condition & Goroutine Finish
-	var (
-		wg sync.WaitGroup
-		mu sync.Mutex
-	)
 
 	// Rate Limiting , 5 request per second
 	rate := time.Second / 5
@@ -119,7 +115,7 @@ func main() {
 	for _, url := range urls {
 		<- limiter.C
 		wg.Add(1)
-		go makeRequest(url, &wg, &mu)
+		go makeRequest(url)
 	}
 	wg.Wait()
 }
