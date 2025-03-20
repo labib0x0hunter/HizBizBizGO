@@ -14,7 +14,7 @@ import(
 // help Display Help , how to use it
 var (
 	counter int = 0
-	help string = fmt.Sprintf("Usages : \n\tgo run crawler.go urls.txt")
+	help string = fmt.Sprintf("Usages : \n\tgo run crawler.go urls.txt\n")
 	userAgents = []string{
 		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
 		"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15",
