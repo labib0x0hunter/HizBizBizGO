@@ -2,7 +2,7 @@
 This code is made for finding atcoder editorials which contains some specific keywords.
 
 ## Usages
-go run main.go startId endId keyword1, keyword2, ... , keywordn
+go run main.go ContestRange_startId ContestRange_endId keyword1, keyword2, ... , keywordn
 
 ## Example 
  - go run main.go 172 200 segment tree, dfs
