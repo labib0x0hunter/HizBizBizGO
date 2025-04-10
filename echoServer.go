@@ -34,6 +34,7 @@ func (s *Server) Start() {
 
     // Handle connection
     for{
+        // Wait for incoming connection
         conn, err := s.listener.Accept()
         if err != nil {
             fmt.Println("Error in Incoming request")
