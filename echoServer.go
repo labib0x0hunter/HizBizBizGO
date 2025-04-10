@@ -3,6 +3,7 @@ package main
 import(
     "fmt"
     "net"
+    "strings"
 )
 
 // Server Configuration
@@ -58,8 +59,8 @@ func (s *Server) HandleConnection(conn net.Conn) {
             return
         }
         input := buffer[:n]
-        response := string(input)
-        conn.Write([]byte(response))
+        response := strings.TrimSpace(string(input))
+        conn.Write([]byte(response + "\n"))
     }
 }
 
