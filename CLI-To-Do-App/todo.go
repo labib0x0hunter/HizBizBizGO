@@ -24,8 +24,8 @@ type Server struct {
 //     id      int
 //     description string
 //     status  string
-//     createdAt   time.time
-//     updatedAt   time.time
+//     createdAt   time.Time
+//     updatedAt   time.Time
 // }
 
 // # Adding a new task
